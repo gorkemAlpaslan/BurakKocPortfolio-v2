@@ -6,74 +6,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Filter, Search, ArrowRight } from "lucide-react";
+import projects from "@/datas/Projects";
 
 // Proje verileri
-const projects = [
-  {
-    id: 1,
-    title: "Eco Friendly Branding",
-    description:
-      "Sürdürülebilir bir marka için logo ve kurumsal kimlik tasarımı.",
-    imageUrl: "/placeholder.svg?height=600&width=800",
-    category: "Logo Tasarımı",
-    client: "Green Co.",
-    year: "2023",
-    tags: ["Logo", "Branding", "Sürdürülebilirlik"],
-  },
-  {
-    id: 2,
-    title: "Tech Startup Sosyal Medya Kampanyası",
-    description:
-      "Yenilikçi bir teknoloji şirketi için Instagram ve LinkedIn kampanyası.",
-    imageUrl: "/placeholder.svg?height=600&width=800",
-    category: "Sosyal Medya Tasarımı",
-    client: "InnoTech",
-    year: "2023",
-    tags: ["Sosyal Medya", "Dijital Pazarlama", "Tech"],
-  },
-  {
-    id: 3,
-    title: "E-ticaret Mobil Uygulama UI/UX",
-    description:
-      "Kullanıcı deneyimini optimize eden bir e-ticaret mobil uygulaması tasarımı.",
-    imageUrl: "/placeholder.svg?height=600&width=800",
-    category: "UI/UX Tasarımı",
-    client: "ShopEase",
-    year: "2022",
-    tags: ["UI/UX", "Mobile App", "E-commerce"],
-  },
-  {
-    id: 4,
-    title: "Minimalist Poster Serisi",
-    description: "Klasik filmleri temsil eden minimalist poster koleksiyonu.",
-    imageUrl: "/placeholder.svg?height=600&width=800",
-    category: "Grafik Tasarım",
-    client: "CinemaArt Gallery",
-    year: "2023",
-    tags: ["Poster", "Minimalizm", "Film"],
-  },
-  {
-    id: 5,
-    title: "Organik Gıda Ambalaj Tasarımı",
-    description: "Çevre dostu malzemelerle üretilen organik gıda ambalajları.",
-    imageUrl: "/placeholder.svg?height=600&width=800",
-    category: "Ambalaj Tasarımı",
-    client: "NatureBite",
-    year: "2022",
-    tags: ["Ambalaj", "Organik", "Sürdürülebilirlik"],
-  },
-  {
-    id: 6,
-    title: "Fintech Dashboard UI",
-    description:
-      "Kullanıcı dostu ve veri odaklı finans yönetim paneli arayüzü.",
-    imageUrl: "/placeholder.svg?height=600&width=800",
-    category: "UI/UX Tasarımı",
-    client: "FinanceFlow",
-    year: "2023",
-    tags: ["UI/UX", "Dashboard", "Fintech"],
-  },
-];
 
 // Kategori filtreleri
 const categories = [

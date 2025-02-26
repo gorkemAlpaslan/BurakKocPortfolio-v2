@@ -41,7 +41,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#030303] text-gray-900 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-[#030303] text-gray-900 dark:text-white ">
       <Header />
 
       <main className="container mx-auto px-4 pt-32 pb-16">
