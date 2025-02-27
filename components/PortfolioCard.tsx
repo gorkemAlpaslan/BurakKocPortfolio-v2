@@ -125,7 +125,7 @@ export default function PortfolioCard({
         </div>
 
         {/* Açıklama */}
-        <motion.p
+        {/* <motion.p
           className="text-sm md:text-base text-gray-600 max-w-[80%] text-center"
           variants={{
             initial: { y: 0, opacity: 1 },
@@ -134,7 +134,7 @@ export default function PortfolioCard({
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           {description}
-        </motion.p>
+        </motion.p> */}
 
         <motion.div
           className="absolute left-0 right-0 bottom-0 overflow-hidden flex justify-center"
