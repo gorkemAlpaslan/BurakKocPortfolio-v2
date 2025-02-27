@@ -8,14 +8,15 @@ import { CheckCircle2, Users2, Target } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "Eco Friendly Branding",
+    title: "Burak Proje 1",
     description:
       "Sürdürülebilir bir marka için logo ve kurumsal kimlik tasarımı.",
-    imageUrl: "/placeholder.svg?height=600&width=800",
+    imageUrl: "/turkiz-main.jpg",
     category: "Logo Tasarımı",
     client: "Green Co.",
     year: "2023",
     tags: ["Logo", "Branding", "Sürdürülebilirlik"],
+    deviceType: "macbook", // Bu proje için MacBook frame kullan
     projectData: {
       id: 1,
       title: "E-Learning Platform UI/UX Design",
@@ -162,17 +163,18 @@ const projects = [
   },
   {
     id: 2,
-    title: "Tech Startup Sosyal Medya Kampanyası",
+    title: "Burak Proje 2",
     description:
       "Yenilikçi bir teknoloji şirketi için Instagram ve LinkedIn kampanyası.",
-    imageUrl: "/placeholder.svg?height=600&width=800",
+    imageUrl: "/inone.jpg",
     category: "Sosyal Medya Tasarımı",
     client: "InnoTech",
     year: "2023",
     tags: ["Sosyal Medya", "Dijital Pazarlama", "Tech"],
+    deviceType: "iphone", // Bu proje için iPhone frame kullan
     projectData: {
       id: 1,
-      title: "E-Learning Platform UI/UX Design",
+      title: "Burak Proje 2",
       description:
         "Kullanıcı odaklı, erişilebilir ve etkileşimli bir online eğitim platformu tasarımı.",
       fullDescription: `Bu projede, modern eğitim ihtiyaçlarını karşılayan, kullanıcı dostu bir e-learning platformu tasarladık. Projemiz, detaylı kullanıcı araştırması ve test süreçleriyle şekillendirildi. Platform, öğrencilerin eğitim içeriklerine kolay erişimini sağlarken, eğitmenlere de içerik yönetimi için güçlü araçlar sunuyor.
@@ -316,7 +318,7 @@ const projects = [
   },
   {
     id: 3,
-    title: "E-ticaret Mobil Uygulama UI/UX",
+    title: "Burak Proje 3",
     description:
       "Kullanıcı deneyimini optimize eden bir e-ticaret mobil uygulaması tasarımı.",
     imageUrl: "/placeholder.svg?height=600&width=800",
@@ -470,7 +472,7 @@ const projects = [
   },
   {
     id: 4,
-    title: "Minimalist Poster Serisi",
+    title: "Burak Proje 4",
     description: "Klasik filmleri temsil eden minimalist poster koleksiyonu.",
     imageUrl: "/placeholder.svg?height=600&width=800",
     category: "Grafik Tasarım",
@@ -623,7 +625,7 @@ const projects = [
   },
   {
     id: 5,
-    title: "Organik Gıda Ambalaj Tasarımı",
+    title: "Burak Proje 5",
     description: "Çevre dostu malzemelerle üretilen organik gıda ambalajları.",
     imageUrl: "/placeholder.svg?height=600&width=800",
     category: "Ambalaj Tasarımı",
@@ -776,7 +778,7 @@ const projects = [
   },
   {
     id: 6,
-    title: "Fintech Dashboard UI",
+    title: "Burak Proje 6",
     description:
       "Kullanıcı dostu ve veri odaklı finans yönetim paneli arayüzü.",
     imageUrl: "/placeholder.svg?height=600&width=800",

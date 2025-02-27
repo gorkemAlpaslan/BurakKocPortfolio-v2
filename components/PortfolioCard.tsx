@@ -5,14 +5,16 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import MacbookFrame from "@/components/macbook-frame";
+import PhoneFrame from "@/components/iphone-frame";
 
 interface PortfolioCardProps {
   title: string;
   description: string;
   image: string;
   link: string;
-  tags?: string[]; // Eski kartta kullanılan tag'leri ekliyoruz
-  year?: string; // Eski kartta kullanılan yıl bilgisini ekliyoruz
+  category: string;
+  year?: string;
+  deviceType?: "macbook" | "iphone";
 }
 
 export default function PortfolioCard({
@@ -20,17 +22,35 @@ export default function PortfolioCard({
   description,
   image,
   link,
-  tags = [], // Varsayılan olarak boş bir dizi
-  year, // Yıl bilgisi
+  category,
+  year,
+  deviceType = "macbook",
 }: PortfolioCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const ANIMATION_DURATION = 300; // Hover animasyon süresi (ms)
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    setIsAnimating(false); // Animasyon iptal
+  };
+
+  const handleMouseLeave = () => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsHovered(false);
+      setIsAnimating(false);
+    }, ANIMATION_DURATION);
+  };
 
   return (
     <motion.div
       className="relative w-full max-w-[600px] h-[350px] rounded-3xl overflow-hidden mx-auto flex flex-col 
-             shadow-xl transition-shadow "
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+             shadow-xl transition-shadow border border-gray-300 dark:border-gray-700 cursor-pointer"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={() => (window.location.href = link)}
       animate={isHovered ? "hovered" : "initial"}
       style={{
         backgroundColor: isHovered ? "white" : "transparent",
@@ -53,22 +73,30 @@ export default function PortfolioCard({
           >
             {title}
           </h3>
-          <div className="flex flex-wrap gap-2 mb-4">
+
+          {/* Yıl ve Kategori */}
+          <motion.div
+            className="flex items-center justify-center flex-wrap gap-2 mb-4"
+            variants={{
+              initial: { y: 0, opacity: 1 },
+              hovered: { y: 20, opacity: 0 },
+            }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
             {year && (
-              <span className="text-sm text-black/60 dark:text-white/60 bg-black/5 dark:bg-white/10 px-2 py-1 rounded">
+              <span className="text-sm text-black/60 dark:text-white/60 bg-black/5 dark:bg-white/10 px-3 py-1 rounded-full">
                 {year}
               </span>
             )}
-            {tags.map((tag, index) => (
-              <span
-                key={index}
-                className="text-sm px-2 py-1 rounded-full bg-black/5 dark:bg-white/5 text-black/60 dark:text-white/60"
-              >
-                {tag}
+            {category && (
+              <span className="text-sm px-3 py-1 rounded-full bg-black/5 dark:bg-white/5 text-black/60 dark:text-white/60">
+                {category}
               </span>
-            ))}
-          </div>
+            )}
+          </motion.div>
         </div>
+
+        {/* ///Açıklama 
 
         <motion.p
           className="text-sm md:text-base text-gray-600 max-w-[80%] text-center"
@@ -80,6 +108,8 @@ export default function PortfolioCard({
         >
           {description}
         </motion.p>
+        
+        */}
 
         <motion.div
           className="absolute left-0 right-0 bottom-0 overflow-hidden flex justify-center"
@@ -89,12 +119,23 @@ export default function PortfolioCard({
           }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <MacbookFrame
-            image={image}
-            alt={title}
-            className="transform scale-[0.95]"
-            isHovered={isHovered} // Hover durumunu buraya iletiyoruz
-          />
+          {deviceType === "macbook" && (
+            <MacbookFrame
+              image={image}
+              alt={title}
+              className="transform scale-[0.95]"
+              isHovered={isHovered}
+            />
+          )}
+
+          {deviceType === "iphone" && (
+            <PhoneFrame
+              image={image}
+              alt={title}
+              className="transform scale-[0.95]"
+              isHovered={isHovered}
+            />
+          )}
         </motion.div>
 
         <motion.div

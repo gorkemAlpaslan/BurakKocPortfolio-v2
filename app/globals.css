@@ -71,7 +71,11 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
+    @apply bg-white dark:bg-black text-black dark:text-white;
+
+    /*// ESKİ //////////////////
+    body { @apply bg-background text-foreground transition-colors duration-300; 
+    */
   }
 }
 
@@ -89,8 +93,6 @@
   }
 }
 
-
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -100,3 +102,12 @@
   }
 }
 
+/* Chrome, Safari için */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox için */
+.scrollbar-hide {
+  scrollbar-width: none;
+}

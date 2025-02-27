@@ -1,31 +1,23 @@
-import "./globals.css"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import { ThemeProvider } from "../components/theme-provider"
-import type React from "react" // Added import for React
+// app/layout.tsx
 
-const inter = Inter({ subsets: ["latin"] })
+import "./globals.css";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "../components/theme-provider";
 
-export const metadata: Metadata = {
-  title: "UI/UX Designer Portfolio",
-  description: "UI/UX Tasarımcı Portfolyo Sitesi",
-    generator: 'v0.dev'
-}
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="tr" className="dark">
-      <body className={inter.className}>
-        <ThemeProvider defaultTheme="dark">{children}</ThemeProvider>
+    <html lang="tr">
+      <body
+        className={`${inter.className} bg-white dark:bg-black text-black dark:text-white`}
+      >
+        <ThemeProvider defaultTheme="system">{children}</ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
-
-
-
-import './globals.css'

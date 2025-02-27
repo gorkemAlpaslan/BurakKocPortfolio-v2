@@ -13,77 +13,176 @@ import {
   LinkIcon,
   ArrowRight,
   CheckCircle2,
+  Users2,
   Target,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Modal from "@/components/Modal";
-import projects from "@/datas/Projects";
+import Image5 from "../../../public/image/adam.jpg";
+
+// UI/UX Proje verisi
+const projectData = {
+  id: 1,
+  title: "E-Learning Platform UI/UX Design",
+  description:
+    "Kullanıcı odaklı, erişilebilir ve etkileşimli bir online eğitim platformu tasarımı.",
+  fullDescription: `Bu projede, modern eğitim ihtiyaçlarını karşılayan, kullanıcı dostu bir e-learning platformu tasarladık. Projemiz, detaylı kullanıcı araştırması ve test süreçleriyle şekillendirildi. Platform, öğrencilerin eğitim içeriklerine kolay erişimini sağlarken, eğitmenlere de içerik yönetimi için güçlü araçlar sunuyor.
+
+Tasarım sürecimiz, kullanıcı deneyimini merkeze alan bir yaklaşımla yürütüldü. Özellikle mobil kullanım senaryoları ve erişilebilirlik standartları göz önünde bulundurularak, her kullanıcı için optimal bir deneyim hedeflendi.`,
+  imageUrl: "@/renex-web.jpg",
+  category: "UI/UX Tasarımı",
+  client: "EduTech Inc.",
+  date: "2023",
+  duration: "12 Hafta",
+  team: [
+    "UX Araştırmacısı",
+    "UI Tasarımcısı",
+    "Etkileşim Tasarımcısı",
+    "Frontend Geliştirici",
+  ],
+  deliverables: [
+    "UX Araştırma Raporu",
+    "Kullanıcı Akış Şemaları",
+    "Wireframe'ler",
+    "UI Stil Rehberi",
+    "Prototip",
+    "Kullanılabilirlik Test Raporu",
+  ],
+  technologies: ["Figma", "Adobe XD", "Maze", "Miro", "Proto.io"],
+  researchMethods: [
+    "Kullanıcı Görüşmeleri",
+    "Anketler",
+    "Rakip Analizi",
+    "Kullanılabilirlik Testleri",
+    "A/B Testleri",
+  ],
+  goals: [
+    "Kullanıcı kaydı ve katılımını %40 artırmak",
+    "Ders tamamlama oranlarını %60'a çıkarmak",
+    "Mobil kullanımı %50 artırmak",
+    "Platform kullanılabilirlik skorunu 90+ yapmak",
+  ],
+  results: [
+    "Kullanıcı kaydında %45 artış",
+    "Ders tamamlama oranlarında %65 iyileşme",
+    "Mobil kullanımda %55 artış",
+    "92/100 kullanılabilirlik skoru",
+  ],
+  process: {
+    empathize: {
+      title: "Empati & Araştırma",
+      description:
+        "Kullanıcı ihtiyaçlarını ve davranışlarını derinlemesine anlamak için kapsamlı araştırma yaptık.",
+      duration: "3 Hafta",
+      tasks: [
+        "15 derinlemesine kullanıcı görüşmesi",
+        "200+ anket yanıtı analizi",
+        "5 rakip platformun detaylı analizi",
+        "Kullanıcı yolculuğu haritalaması",
+      ],
+      image: "/placeholder.svg?height=600&width=800",
+    },
+    define: {
+      title: "Tanımlama & Analiz",
+      description:
+        "Araştırma bulgularını analiz ederek temel kullanıcı ihtiyaçlarını ve sorunları belirledik.",
+      duration: "2 Hafta",
+      tasks: [
+        "Kullanıcı personaları oluşturma",
+        "Sorun tespiti ve önceliklendirme",
+        "Tasarım prensiplerinin belirlenmesi",
+        "Başarı metriklerinin tanımlanması",
+      ],
+      image: "/placeholder.svg?height=600&width=800",
+    },
+    ideate: {
+      title: "Fikir Üretimi & Tasarım",
+      description:
+        "Belirlenen sorunlara yönelik çözümler geliştirdik ve ilk tasarım konseptlerini oluşturduk.",
+      duration: "4 Hafta",
+      tasks: [
+        "Beyin fırtınası oturumları",
+        "Çözüm önerilerinin değerlendirilmesi",
+        "Wireframe'lerin oluşturulması",
+        "Tasarım sisteminin geliştirilmesi",
+      ],
+      image: "/placeholder.svg?height=600&width=800",
+    },
+    prototype: {
+      title: "Prototipleme & Test",
+      description:
+        "Tasarımları interaktif prototiplere dönüştürdük ve kullanıcılarla test ettik.",
+      duration: "3 Hafta",
+      tasks: [
+        "Hi-fi prototiplerin hazırlanması",
+        "10 kullanılabilirlik testi",
+        "Geri bildirimlerin analizi",
+        "İterasyonların tamamlanması",
+      ],
+      image: "/placeholder.svg?height=600&width=800",
+    },
+  },
+  wireframes: [
+    {
+      title: "Ana Sayfa",
+      description: "Kurs keşfi ve navigasyon yapısı",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1O1QwHRLMB1otiLMWNOgFJNQSeoThO.png",
+    },
+    {
+      title: "Kurs Detay",
+      description: "İçerik organizasyonu ve etkileşim noktaları",
+      image: "/placeholder.svg?height=600&width=800",
+    },
+    {
+      title: "Öğrenim Paneli",
+      description: "İlerleme takibi ve içerik görüntüleme",
+      image: "/placeholder.svg?height=600&width=800",
+    },
+  ],
+  gallery: [
+    Image5,
+    "/placeholder.svg?height=600&width=800",
+    "/placeholder.svg?height=400&width=600",
+    "/placeholder.svg?height=800&width=1200",
+    "/placeholder.svg?height=600&width=800",
+    "/placeholder.svg?height=400&width=600",
+    "/placeholder.svg?height=800&width=1200",
+    "/placeholder.svg?height=600&width=800",
+    "/placeholder.svg?height=400&width=600",
+    "/placeholder.svg?height=800&width=1200",
+    "/placeholder.svg?height=600&width=800",
+    "/placeholder.svg?height=400&width=600",
+  ],
+  metrics: [
+    {
+      title: "Kullanıcı Memnuniyeti",
+      value: "92%",
+      change: "+15%",
+      icon: Users2,
+    },
+    {
+      title: "Görev Tamamlama",
+      value: "95%",
+      change: "+20%",
+      icon: CheckCircle2,
+    },
+    {
+      title: "Hedef Gerçekleşme",
+      value: "88%",
+      change: "+25%",
+      icon: Target,
+    },
+  ],
+  hasPrototype: true,
+  hasWireframes: true,
+};
 
 export default function ProjectDetail({ params }: { params: { id: string } }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [activeTab, setActiveTab] = useState("overview");
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [projectData, SetProjectData] = useState({
-    id: 0,
-    title: "",
-    description: "",
-    fullDescription: "",
-    imageUrl: "",
-    category: "",
-    client: "",
-    date: "",
-    duration: "",
-    team: [],
-    deliverables: [],
-    technologies: [],
-    researchMethods: [],
-    goals: [],
-    results: [],
-    process: {
-      empathize: {
-        title: "",
-        description: "",
-        duration: "",
-        tasks: [],
-        image: "",
-      },
-      define: {
-        title: "",
-        description: "",
-        duration: "",
-        tasks: [],
-        image: "",
-      },
-      ideate: {
-        title: "",
-        description: "",
-        duration: "",
-        tasks: [],
-        image: "",
-      },
-      prototype: {
-        title: "",
-        description: "",
-        duration: "",
-        tasks: [],
-        image: "",
-      },
-    },
-    wireframes: [],
-    gallery: [],
-    metrics: [],
-    hasPrototype: false,
-    hasWireframes: false,
-  });
-
-  useEffect(() => {
-    projects.find((proj: any) => {
-      if (proj.id == params.id) {
-        SetProjectData(proj.projectData);
-      }
-    });
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -186,7 +285,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#030303] to-transparent opacity-60" />
+                  <div className="absolute inset-0" />
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -280,7 +379,7 @@ function GalleryTab({ project }) {
                 "md:col-span-8 md:row-span-2",
                 "md:col-span-6 md:row-span-2",
                 "md:col-span-6 md:row-span-2",
-              ][index] || "md:col-span-4 md:row-span-1";
+              ][index] || "md:col-span-4 md:row-span-1 ";
 
             return (
               <motion.div
@@ -289,7 +388,7 @@ function GalleryTab({ project }) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`${sizeClasses} relative rounded-2xl overflow-hidden group cursor-pointer`}
+                className={`${sizeClasses} relative  rounded-2xl overflow-hidden group cursor-pointer`}
                 onClick={() => setSelectedImage(index)}
               >
                 <Image
@@ -353,7 +452,7 @@ function OverviewTab({ project }) {
               <metric.icon className="w-6 h-6 text-blue-500" />
             </div>
             <div>
-              <p className="text-sm text-black/60 dark:text-white/60">
+              <p className="text-sm  text-black/60 dark:text-white/60">
                 {metric.title}
               </p>
               <div className="flex items-center gap-2">

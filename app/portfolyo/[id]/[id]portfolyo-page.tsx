@@ -285,7 +285,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#030303] to-transparent opacity-60" />
+                  <div className="absolute inset-0" />
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -294,7 +294,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
       </section>
 
       {/* Main Content */}
-      <section className="py-16">
+      <section className="py-16 bg-red-500">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             {/* Updated Tabs */}

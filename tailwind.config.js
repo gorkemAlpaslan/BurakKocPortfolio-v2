@@ -8,6 +8,7 @@ module.exports = {
     "app/**/*.{ts,tsx}",
     "components/**/*.{ts,tsx}",
   ],
+
   theme: {
     extend: {
       colors: {
@@ -58,5 +59,7 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
-
+  plugins: [
+    require("tailwind-scrollbar-hide"), // Eklenti burada tanımlandı
+  ],
+};
