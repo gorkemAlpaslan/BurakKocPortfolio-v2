@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
@@ -29,11 +29,11 @@ export default function PortfolioCard({
   const [isHovered, setIsHovered] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const ANIMATION_DURATION = 300; // Hover animasyon süresi (ms)
+  const ANIMATION_DURATION = 500; // Hover animasyon süresi (ms)
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    setIsAnimating(false); // Animasyon iptal
+    setIsAnimating(false); // Animasyonu iptal et
   };
 
   const handleMouseLeave = () => {
@@ -44,12 +44,40 @@ export default function PortfolioCard({
     }, ANIMATION_DURATION);
   };
 
+  // Mobilde parmak basılıyken hover efekti aktif olsun
+  const handleTouchStart = () => {
+    setIsHovered(true);
+    setIsAnimating(false);
+  };
+
+  const handleTouchEnd = () => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsHovered(false);
+      setIsAnimating(false);
+    }, ANIMATION_DURATION);
+  };
+
+  // Kullanıcı scrol yaparken hover devam etsin
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isHovered) {
+        setIsAnimating(false); // Hover durumundayken scroll durumu değişmesin
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHovered]);
+
   return (
     <motion.div
       className="relative w-full max-w-[600px] h-[350px] rounded-3xl overflow-hidden mx-auto flex flex-col 
              shadow-xl transition-shadow border border-gray-300 dark:border-gray-700 cursor-pointer"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       onClick={() => (window.location.href = link)}
       animate={isHovered ? "hovered" : "initial"}
       style={{
@@ -96,8 +124,7 @@ export default function PortfolioCard({
           </motion.div>
         </div>
 
-        {/* ///Açıklama 
-
+        {/* Açıklama */}
         <motion.p
           className="text-sm md:text-base text-gray-600 max-w-[80%] text-center"
           variants={{
@@ -108,8 +135,6 @@ export default function PortfolioCard({
         >
           {description}
         </motion.p>
-        
-        */}
 
         <motion.div
           className="absolute left-0 right-0 bottom-0 overflow-hidden flex justify-center"
