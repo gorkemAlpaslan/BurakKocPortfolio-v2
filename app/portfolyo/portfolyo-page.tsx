@@ -252,7 +252,7 @@ export default function PortfolioPage() {
                from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent 
                tracking-tight py-12 mt-20"
         >
-          Portfolyo
+          Portfolyoasdasd
         </h1>
 
         <div className="relative w-full overflow-hidden">

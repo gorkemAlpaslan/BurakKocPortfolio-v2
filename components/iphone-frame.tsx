@@ -11,6 +11,10 @@ interface PhoneFrameProps {
   image?: string;
   alt?: string;
   isHovered?: boolean;
+  classNames?: {
+    container?: string;
+    screen?: string;
+  };
 }
 
 export default function PhoneFrame({
@@ -18,12 +22,14 @@ export default function PhoneFrame({
   image,
   alt = "Preview",
   isHovered = false,
+  classNames,
 }: PhoneFrameProps) {
   return (
     <div
       className={cn(
         "relative top-24 border-[1px] border-white/25 rounded-[33px]",
-        className
+        className,
+        classNames?.container
       )}
     >
       {/* iPhone Çerçevesi */}
@@ -32,7 +38,8 @@ export default function PhoneFrame({
           "relative w-[220px] h-[430px] rounded-[32px] border-[8px] bg-black border-black dark:border-[#19191e]",
           isHovered
             ? "shadow-[0px_40px_240px_rgba(0,0,0,0.4)] dark:shadow-[0px_0px_240px_rgba(255,255,255,0.4)]"
-            : "shadow-none"
+            : "shadow-none",
+            classNames?.screen
         )}
         transition={{ duration: 0.5, ease: "linear" }}
       >
@@ -40,7 +47,6 @@ export default function PhoneFrame({
         <div className="absolute top-3 left-1/2 -translate-x-1/2 bg-black rounded-full flex items-center justify-center z-50">
           <div className="w-[60px] h-[16px] bg-black rounded-full opacity-100" />
         </div>
-
         {/* Ekran */}
         <div className="relative w-full h-full rounded-[22px] overflow-hidden">
           {image && (

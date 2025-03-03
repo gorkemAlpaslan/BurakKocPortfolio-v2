@@ -11,6 +11,10 @@ interface MacbookFrameProps {
   image?: string;
   alt?: string;
   isHovered?: boolean;
+  classnames?: {
+    wrapper: string;
+    inner: string;
+  };
 }
 
 export default function MacbookFrame({
@@ -18,12 +22,17 @@ export default function MacbookFrame({
   image,
   alt = "Preview",
   isHovered = false,
+  classnames = {
+    wrapper: "",
+    inner: "",
+  },
 }: MacbookFrameProps) {
   return (
     <div
       className={cn(
         "relative w-full max-w-[380px] sm:max-w-[422px] h-[430px] sm:h-[430px] top-24 border-[1px] border-white/35 rounded-[26px]",
-        className
+        className,
+        classnames.wrapper
       )}
     >
       <motion.div
@@ -31,7 +40,8 @@ export default function MacbookFrame({
           "relative w-full max-w-[380px] sm:max-w-[422px] h-[430px] sm:h-[430px] rounded-[24px] border-[8px] bg-black dark:bg-[#19191e] border-black dark:border-[#19191e]",
           isHovered
             ? "shadow-[0px_40px_140px_rgba(0,0,0,0.4)] dark:shadow-[0px_0px_140px_rgba(255,255,255,0.4)] z-100"
-            : "shadow-none"
+            : "shadow-none",
+          classnames.inner
         )}
         transition={{ duration: 0.5, ease: "linear" }}
       >

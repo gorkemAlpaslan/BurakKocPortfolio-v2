@@ -394,7 +394,6 @@ const projects = [
       hasPrototype: true,
     },
   },
-
   // Preje 4
   {
     id: 4,
