@@ -122,8 +122,8 @@ export default function Header({ currentPage = "" }: HeaderProps) {
             {/* Tema Değiştirici */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10
-                         text-black/80 dark:text-white/80 h-full flex items-center"
+              className="fixed rounded-full p-2 hover:bg-gray-100 dark:hover:bg-white/10
+                         text-black/80 dark:text-white/80 h-full items-center right-[20%]"
             >
               {theme === "dark" ? (
                 <Sun className="w-5 h-5" />
