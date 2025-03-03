@@ -118,12 +118,12 @@ export default function Header({ currentPage = "" }: HeaderProps) {
           </nav>
 
           {/* Sağ Butonlar: Tema ve E-CV/Hamburger */}
-          <div className="flex items-center space-x-4 h-full">
+          <div className="flex items-center space-x-4 h-full  relative">
             {/* Tema Değiştirici */}
             <button
               onClick={toggleTheme}
-              className="fixed rounded-full p-2 hover:bg-gray-100 dark:hover:bg-white/10
-                         text-black/80 dark:text-white/80 h-full items-center right-[20%]"
+              className="absolute rounded-full p-2 hover:bg-gray-100 dark:hover:bg-white/10
+                         text-black/80 dark:text-white/80 h-full items-center -left-[38%] md:-left-[20%]"
             >
               {theme === "dark" ? (
                 <Sun className="w-5 h-5" />
